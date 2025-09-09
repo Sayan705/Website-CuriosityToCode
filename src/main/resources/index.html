@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- STEP 1: Website title and design styles -->
+    <meta charset="UTF-8">
+    <title>Sayan's Website</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #23272a 0%, #3a3f47 100%);
+            color: #fff;
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+        }
+        .header-section {
+            background: linear-gradient(120deg, #e3f6fc 0%, #6dd5ed 100%);
+            padding: 64px 0 48px 0;
+            text-align: center;
+            border-radius: 0 0 48px 48px;
+            box-shadow: 0 8px 32px rgba(33,147,176,0.12);
+            margin-bottom: 0;
+        }
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+        .header-icon {
+            animation: bounce 1.2s infinite alternate;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-12px); }
+        }
+        .header-section h1 {
+            font-size: 56px;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+            color: #23272a;
+            font-weight: 800;
+            text-shadow: none;
+        }
+        .header-section p {
+            font-size: 24px;
+            margin-bottom: 0;
+            color: #23272a;
+            background: rgba(255,255,255,0.85);
+            border-radius: 16px;
+            padding: 18px 28px;
+            box-shadow: 0 2px 12px rgba(33,147,176,0.08);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        .header-section p span {
+            font-weight: 600;
+            color: #2193b0;
+        }
+        .header-section hr {
+            border: 1px solid #fff;
+            margin: 32px auto 0 auto;
+            width: 80%;
+            opacity: 0.3;
+        }
+        .center-content {
+            background: transparent;
+            padding: 56px 0;
+        }
+        .modern-box {
+            background: linear-gradient(135deg, #23272a 0%, #2d3a4a 100%);
+            border-radius: 32px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+            padding: 56px 64px;
+            max-width: 700px;
+            margin: 56px auto;
+            transition: box-shadow 0.3s;
+        }
+        .modern-box:hover {
+            box-shadow: 0 12px 48px rgba(33,147,176,0.22);
+        }
+        .graphic-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .graphic-list li {
+            display: flex;
+            align-items: flex-start;
+            margin: 36px 0;
+            gap: 26px;
+            transition: background 0.2s;
+            border-radius: 18px;
+            padding: 8px 0;
+        }
+        .icon {
+            font-size: 40px;
+            min-width: 72px;
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.14);
+            transition: transform 0.2s;
+        }
+        .icon-light {
+            background: #6dd5ed;
+            color: #23272a;
+        }
+        .icon-blue {
+            background: #2193b0;
+            color: #fff;
+        }
+        .icon-green {
+            background: #43e97b;
+            color: #fff;
+        }
+        .graphic-list li:hover .icon {
+            transform: scale(1.1);
+        }
+        .list-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .list-title {
+            font-size: 26px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .list-desc {
+            font-size: 18px;
+            color: #bfc9d1;
+        }
+        .footer {
+            text-align: center;
+            padding: 32px 0 16px 0;
+            color: #bfc9d1;
+            font-size: 18px;
+            letter-spacing: 1px;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <!-- STEP 3: Header with title and description -->
+    <div class="header-section redesigned-header">
+        <div class="header-content">
+            <span class="header-icon" style="font-size:64px; background:#fff; color:#2193b0; border-radius:50%; padding:18px; box-shadow:0 4px 24px rgba(33,147,176,0.12); display:inline-block; margin-bottom:18px;">🚀</span>
+            <h1 style="font-size:56px; font-weight:800; color:#23272a; margin-bottom:18px; letter-spacing:2px;">From Curiosity to Code</h1>
+            <p style="font-size:24px; color:#23272a; background:rgba(255,255,255,0.85); border-radius:16px; padding:18px 28px; box-shadow:0 2px 12px rgba(33,147,176,0.08); max-width:800px; margin:0 auto; line-height:1.5;">From Curiosity to Code is a beginner-friendly space where exploration meets execution. Whether you're just starting out or refining your fundamentals, this site transforms questions into code, guiding you through the core concepts of software engineering with clarity, creativity, and hands-on examples. <br><br> <span style="font-weight:600; color:#2193b0;">Dive in, stay curious, and start building.</span></p>
+        </div>
+    </div>
+
+    <!-- STEP 4: Centered main content -->
+    <div class="center-content">
+        <!-- Modern styled box for key points -->
+        <div class="graphic-paragraph modern-box">
+            <ul class="graphic-list">
+                <li>
+                    <span class="icon icon-light">💡</span>
+                    <div class="list-content">
+                        <a href="../../../../../SampleWebsiteSayan/SampleWebsiteSayan/learn-basics.html" class="list-title" style="text-decoration:none; color:#fff;">
+                            Learn Basics
+                        </a>
+                        <span class="list-desc">Start with algorithms, data structures, and core programming concepts.</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="icon icon-blue">🧩</span>
+                    <div class="list-content">
+                        <a href="../../../../../SampleWebsiteSayan/SampleWebsiteSayan/sample-projects.html" class="list-title" style="text-decoration:none; color:#fff;">
+                            Sample Project
+                        </a>
+                        <span class="list-desc">Build projects, solve coding challenges, and explore system design.</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Created by Sayan | © 2025</p>
+    </footer>
+</body>
+</html>
