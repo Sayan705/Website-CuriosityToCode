@@ -18,14 +18,20 @@ import java.io.IOException;
 public class DocUploadController {
     @PostMapping(value = "/upload-doc", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<byte[]> uploadDoc(@RequestParam("file") MultipartFile file) throws Exception {
-        // Save uploaded DOC file to temp location
-        File tempDoc = File.createTempFile("uploaded", ".doc");
+        // Save uploaded DOC/DOCX file to temp location
+        String originalFilename = file.getOriginalFilename();
+        String ext = originalFilename != null && originalFilename.toLowerCase().endsWith(".docx") ? ".docx" : ".doc";
+        File tempDoc = File.createTempFile("uploaded", ext);
         try (FileOutputStream fos = new FileOutputStream(tempDoc)) {
             fos.write(file.getBytes());
         }
-        // Convert DOC to PDF
+        // Convert DOC/DOCX to PDF
         File tempPdf = File.createTempFile("converted", ".pdf");
-        DocToPdfConverter.convertDocToPdf(tempDoc.getAbsolutePath(), tempPdf.getAbsolutePath());
+        if (ext.equals(".docx")) {
+            DocToPdfConverter.convertDocxToPdf(tempDoc.getAbsolutePath(), tempPdf.getAbsolutePath());
+        } else {
+            DocToPdfConverter.convertDocToPdf(tempDoc.getAbsolutePath(), tempPdf.getAbsolutePath());
+        }
         byte[] pdfBytes = java.nio.file.Files.readAllBytes(tempPdf.toPath());
         // Clean up temp files
         tempDoc.delete();
@@ -37,4 +43,3 @@ public class DocUploadController {
                 .body(pdfBytes);
     }
 }
-
