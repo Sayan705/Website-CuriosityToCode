@@ -3,28 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <title>Sample Project</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #23272a 0%, #3a3f47 100%);
+            color: #fff;
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+        }
+        header {
+            background: #000 !important;
+            padding: 40px 0;
+            text-align: center;
+            color: #fff;
+            border-radius: 0 0 24px 24px;
+            box-shadow: 0 2px 12px rgba(33,147,176,0.18);
+            position: relative;
+            overflow: hidden;
+        }
+        header::before, header::after {
+            content: none !important;
+        }
+        header h1, header p {
+            position: relative;
+            z-index: 1;
+        }
+        .full-width-block {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            background: linear-gradient(90deg, #23272a 0%, #38f9d7 100%);
+            box-shadow: 0 8px 32px rgba(33,147,176,0.12);
+            margin-bottom: 48px;
+            padding: 0;
+            border-radius: 0 0 48px 48px;
+            position: relative;
+            z-index: 2;
+        }
+        .word-block {
+            background: linear-gradient(90deg, #6dd5ed 0%, #e3f6fc 100%);
+            box-shadow: 0 8px 32px rgba(33,147,176,0.18);
+        }
+        .word-block .block-content {
+            background: rgba(255,255,255,0.18);
+            border: 2px solid #6dd5ed;
+        }
+        .word-block h2 {
+            color: #2193b0;
+        }
+        .word-block h3 {
+            color: #43e97b;
+        }
+        .excel-block {
+            background: linear-gradient(90deg, #43e97b 0%, #f8fafc 100%);
+            box-shadow: 0 8px 32px rgba(67,233,123,0.18);
+        }
+        .excel-block .block-content {
+            background: rgba(255,255,255,0.18);
+            border: 2px solid #43e97b;
+        }
+        .excel-block h2 {
+            color: #43e97b;
+        }
+        .excel-block h3 {
+            color: #2193b0;
+        }
+        .merge-block {
+            background: linear-gradient(90deg, #2193b0 0%, #e3f6fc 100%);
+            box-shadow: 0 8px 32px rgba(33,147,176,0.18);
+        }
+        .merge-block .block-content {
+            background: rgba(255,255,255,0.18);
+            border: 2px solid #2193b0;
+        }
+        .merge-block h2 {
+            color: #2193b0;
+        }
+        .merge-block h3 {
+            color: #6dd5ed;
+        }
+        .block-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 32px;
+            border-radius: 32px;
+            box-shadow: 0 4px 24px rgba(33,147,176,0.12);
+            position: relative;
+        }
+        .word-block {
+            background: linear-gradient(90deg, #6dd5ed 0%, #e3f6fc 100%);
+            box-shadow: 0 8px 32px rgba(33,147,176,0.18);
+        }
+        .word-block .block-content {
+            background: rgba(255,255,255,0.18);
+            border: 2px solid #6dd5ed;
+        }
+        .word-block h2 {
+            color: #2193b0;
+        }
+        .word-block h3 {
+            color: #43e97b;
+        }
+        .excel-block {
+            background: linear-gradient(90deg, #43e97b 0%, #f8fafc 100%);
+            box-shadow: 0 8px 32px rgba(67,233,123,0.18);
+        }
+        .excel-block .block-content {
+            background: rgba(255,255,255,0.18);
+            border: 2px solid #43e97b;
+        }
+        .excel-block h2 {
+            color: #43e97b;
+        }
+        .excel-block h3 {
+            color: #2193b0;
+        }
+        .merge-block {
+            background: linear-gradient(90deg, #2193b0 0%, #e3f6fc 100%);
+            box-shadow: 0 8px 32px rgba(33,147,176,0.18);
+        }
+        .merge-block .block-content {
+            background: rgba(255,255,255,0.18);
+            border: 2px solid #2193b0;
+        }
+        .merge-block h2 {
+            color: #2193b0;
+        }
+        .merge-block h3 {
+            color: #6dd5ed;
+        }
+        .block-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 32px;
+            border-radius: 32px;
+            box-shadow: 0 4px 24px rgba(33,147,176,0.12);
+            position: relative;
+        }
+        .block-content h2 {
+            font-size: 32px;
+            color: #23272a;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+        }
+        .block-content h3 {
+            font-size: 22px;
+            color: #2193b0;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .block-content form {
+            margin-bottom: 24px;
+        }
+        .block-content label {
+            font-size: 18px;
+            color: #2193b0;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .block-content input[type="file"] {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #43e97b;
+            margin-bottom: 18px;
+            background: #fff;
+            color: #23272a;
+            font-size: 16px;
+        }
+        .block-content button {
+            background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+            color: #23272a;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 28px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(33,147,176,0.10);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .block-content button:hover {
+            background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+            transform: scale(1.05);
+        }
+        .block-content small {
+            display: block;
+            color: #bfc9d1;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+        .response-preview, .excel-response-preview, .merge-response-preview {
+            min-height: 60px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 1px 6px rgba(33,147,176,0.07);
+            padding: 18px 24px;
+            color: #23272a;
+            font-size: 18px;
+            text-align: left;
+            margin-top: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        .block-content a {
+            color: #2193b0;
+            font-weight: bold;
+            font-size: 20px;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        .block-content a:hover {
+            color: #43e97b;
+        }
+    </style>
 </head>
 <body>
-    <header style="background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%); padding: 40px 0; text-align: center; color: #23272a; border-radius: 0 0 24px 24px; box-shadow: 0 2px 12px rgba(33,147,176,0.10);">
-        <h1 style="font-size: 48px; margin: 0; font-weight: bold; letter-spacing: 2px;">Experimental & Fun</h1>
-        <p style="font-size: 22px; margin-top: 18px; color: #23272a; font-weight: 500;">Sandbox Showcase: Where Ideas Take Shape</p>
+    <header style="background: #000; padding: 40px 0; text-align: center; color: #fff; border-radius: 0 0 24px 24px; box-shadow: 0 2px 12px rgba(33,147,176,0.18);">
+        <h1 style="font-size: 48px; margin: 0; font-weight: bold; letter-spacing: 2px; color: #6dd5ed;">Experimental & Fun</h1>
+        <p style="font-size: 22px; margin-top: 18px; color: #e3f6fc; font-weight: 500; background: rgba(33,147,176,0.12); border-radius: 12px; display: inline-block; padding: 10px 24px;">Sandbox Showcase: Where Ideas Take Shape</p>
     </header>
-    <section style="max-width: 700px; margin: 40px auto; background: #f8fafc; border-radius: 18px; box-shadow: 0 2px 12px rgba(33,147,176,0.08); padding: 32px 36px; font-size: 20px; color: #23272a; line-height: 1.6; text-align:center;">
-        <h2 style="font-size: 28px; color: #43e97b; margin-bottom: 24px;">File Converter</h2>
-        <form action="/upload-doc" method="post" enctype="multipart/form-data" style="margin: 0 auto; display: inline-block;">
-            <!-- Only .doc files are accepted for upload -->
-            <label for="file-upload" style="font-size: 18px; color: #2193b0; font-weight: 600; margin-bottom: 12px; display: block;">Upload your Word file:</label>
-            <input type="file" id="file-upload" name="file" accept=".doc" style="padding: 10px; border-radius: 8px; border: 1px solid #43e97b; margin-bottom: 18px;">
-            <small style="display:block; color:#bfc9d1; margin-bottom:12px;">only word files are accpted</small>
-            <br>
-            <button type="submit" style="background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%); color: #23272a; font-size: 18px; font-weight: bold; border: none; border-radius: 8px; padding: 10px 28px; cursor: pointer; box-shadow: 0 2px 8px rgba(33,147,176,0.10);">Upload</button>
-        </form>
+    <section class="full-width-block word-block">
+        <div class="block-content">
+            <h2>Word To PDF Converter</h2>
+            <form action="/upload-doc" method="post" enctype="multipart/form-data">
+                <label for="file-upload">Upload your Word file:</label>
+                <input type="file" id="file-upload" name="file" accept=".doc,.docx">
+                <small>only word files are accepted</small>
+                <button type="submit">Upload</button>
+            </form>
+            <div class="response-preview">
+                <h3>Word Response Preview</h3>
+                <a id="pdf-download-link" href="#" style="display:none;">Download your PDF</a>
+            </div>
+        </div>
     </section>
-    <section style="max-width: 700px; margin: 32px auto; background: #e3f6fc; border-radius: 18px; box-shadow: 0 2px 12px rgba(33,147,176,0.08); padding: 32px 36px; font-size: 20px; color: #23272a; line-height: 1.6; text-align:center;">
-        <h2 style="font-size: 28px; color: #2193b0; margin-bottom: 24px;">- Response Preview</h2>
-        <div id="response-preview" style="min-height: 60px; background: #fff; border-radius: 10px; box-shadow: 0 1px 6px rgba(33,147,176,0.07); padding: 18px 24px; color: #23272a; font-size: 18px; text-align:left;">
-            <!-- Output will be visible here as text -->
-            <a id="pdf-download-link" href="#" style="display:none; color:#2193b0; font-weight:bold; font-size:20px; text-decoration:underline;">Download your PDF</a>
+    <section class="full-width-block excel-block">
+        <div class="block-content">
+            <h2>Excel To PDF Converter</h2>
+            <form id="excel-upload-form" action="/upload-excel" method="post" enctype="multipart/form-data">
+                <label for="excel-file-upload">Upload your Excel file:</label>
+                <input type="file" id="excel-file-upload" name="file" accept=".xls,.xlsx">
+                <small>only Excel files are accepted</small>
+                <button type="submit">Upload</button>
+            </form>
+            <div class="excel-response-preview">
+                <h3>Excel Response Preview</h3>
+                <a id="excel-pdf-download-link" href="#" style="display:none;">Download your PDF</a>
+            </div>
+        </div>
+    </section>
+    <section class="full-width-block merge-block">
+        <div class="block-content">
+            <h2>Merge Your PDFs</h2>
+            <form id="merge-pdf-form" action="/merge-pdfs" method="post" enctype="multipart/form-data">
+                <label for="pdf-files-upload">Upload PDF files to merge:</label>
+                <input type="file" id="pdf-files-upload" name="files" accept=".pdf" multiple>
+                <small>Select two or more PDF files</small>
+                <button type="submit">Merge PDFs</button>
+            </form>
+            <div class="merge-response-preview">
+                <h3>Merge Pdf Response Preview</h3>
+                <a id="merge-pdf-download-link" href="#" style="display:none;">Download merged PDF</a>
+            </div>
         </div>
     </section>
     <script>
@@ -53,6 +294,60 @@
             })
             .catch(error => {
                 document.getElementById('response-preview').textContent = error.message;
+            });
+        });
+        document.getElementById('excel-upload-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch('/upload-excel', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.blob();
+                } else {
+                    return response.text().then(text => { throw new Error('Backend error: ' + text); });
+                }
+            })
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const link = document.getElementById('excel-pdf-download-link');
+                link.href = url;
+                link.style.display = 'inline-block';
+                link.download = 'excel-converted.pdf';
+                link.textContent = 'Download your PDF';
+                document.getElementById('excel-response-preview').appendChild(link);
+            })
+            .catch(error => {
+                document.getElementById('excel-response-preview').textContent = error.message;
+            });
+        });
+        document.getElementById('merge-pdf-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch('/merge-pdfs', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.blob();
+                } else {
+                    return response.text().then(text => { throw new Error('Backend error: ' + text); });
+                }
+            })
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const link = document.getElementById('merge-pdf-download-link');
+                link.href = url;
+                link.style.display = 'inline-block';
+                link.download = 'merged.pdf';
+                link.textContent = 'Download merged PDF';
+                document.getElementById('merge-response-preview').appendChild(link);
+            })
+            .catch(error => {
+                document.getElementById('merge-response-preview').textContent = error.message;
             });
         });
     </script>
